@@ -60,11 +60,15 @@ class trackwidget extends StatelessWidget {
             width: 25.0,
             height: 25.0,
             decoration: BoxDecoration(
-              //color: isDone ? Color(0xFF7349FE) : Colors.transparent,
-              borderRadius: BorderRadius.circular(6.0),
-            ),
-            child: Image(
-                image: AssetImage('lib/assets/images/icons8-checkmark-24.png')),
+                color: isDone! ? Color(0xFF7439FE) : Colors.transparent,
+                borderRadius: BorderRadius.circular(6.0),
+                border: isDone!
+                    ? null
+                    : Border.all(
+                        color: Color(0xFF86829D),
+                        width: 1.5,
+                      )),
+            child: Image(image: AssetImage('lib/assets/images/check_icon.png')),
           ),
           SizedBox(
             width: 12,
@@ -72,12 +76,21 @@ class trackwidget extends StatelessWidget {
           Text(
             text ?? "(Unnamed Anime)",
             style: TextStyle(
+              color: isDone! ? Color(0xFF211551) : Color(0xFF86829D),
               fontSize: 16.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: isDone! ? FontWeight.bold : FontWeight.w500,
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class SB extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }

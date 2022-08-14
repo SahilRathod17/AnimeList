@@ -35,21 +35,24 @@ class __homepageState extends State<HomePage> {
                     ),
                   ),
                   Expanded(
-                    child: ListView(
-                      children: [
-                        CardWidget(
-                          title: "Get Started!!",
-                          info:
-                              "Hello Weeb! Welcome to AnimeList app, this is tab that you can edit or delete to start tracking your animes.",
-                        ),
-                        CardWidget(),
-                        CardWidget(),
-                        CardWidget(),
-                        CardWidget(),
-                        CardWidget(),
-                        CardWidget(),
-                        CardWidget(),
-                      ],
+                    child: ScrollConfiguration(
+                      behavior: SB(), //no glow when going max-up or max-downs
+                      child: ListView(
+                        children: [
+                          CardWidget(
+                            title: "Get Started!!",
+                            info:
+                                "Hello Weeb! Welcome to AnimeList app, this is tab that you can edit or delete to start tracking your animes.",
+                          ),
+                          CardWidget(),
+                          CardWidget(),
+                          CardWidget(),
+                          CardWidget(),
+                          CardWidget(),
+                          CardWidget(),
+                          CardWidget(),
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -67,9 +70,7 @@ class __homepageState extends State<HomePage> {
                   child: Container(
                     width: 60.0,
                     height: 60.0,
-                    decoration: BoxDecoration(
-                        //color: Color(0xFF7449FE),
-                        ),
+                    decoration: BoxDecoration(),
                     child: Image(
                         image: AssetImage(
                             "lib/assets/images/icons8-add-60(-xhdpi).png")),
