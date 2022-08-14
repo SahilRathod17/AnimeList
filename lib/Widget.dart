@@ -44,3 +44,40 @@ class CardWidget extends StatelessWidget {
         ));
   }
 }
+
+class trackwidget extends StatelessWidget {
+  final String? text;
+  final bool? isDone;
+  trackwidget({this.text, required this.isDone});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+      child: Row(
+        children: [
+          Container(
+            width: 25.0,
+            height: 25.0,
+            decoration: BoxDecoration(
+              //color: isDone ? Color(0xFF7349FE) : Colors.transparent,
+              borderRadius: BorderRadius.circular(6.0),
+            ),
+            child: Image(
+                image: AssetImage('lib/assets/images/icons8-checkmark-24.png')),
+          ),
+          SizedBox(
+            width: 12,
+          ),
+          Text(
+            text ?? "(Unnamed Anime)",
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
